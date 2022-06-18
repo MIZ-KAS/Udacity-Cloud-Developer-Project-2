@@ -36,13 +36,14 @@ import {Request, Response} from 'express';
   app.get("/filteredimage",async (req, res)=>{
     const { image_url } = req.query;
     if (!image_url) {
-      return res.status(404).json({msg: "No Url was Passed"});
+      return res.status(422).json({msg: "No Url was Passed"});
     }
       let imageFile = await filterImageFromURL(image_url);
       console.log(imageFile);
       return res.status(200).sendFile(imageFile, () => {
         deleteLocalFiles([imageFile]);
       });
+
  
   } );
 
