@@ -34,7 +34,7 @@ import {Request, Response} from 'express';
 
 
   app.get("/filteredimage",async (req, res)=>{
-    const { image_url } = req.query;
+    const { image_url } : any = req.query;
     if (!image_url) {
       return res.status(404).json({msg: "No Url was Passed"});
     }
@@ -45,6 +45,7 @@ import {Request, Response} from 'express';
       });
  
   } );
+
 
    //! END @TODO1
   
