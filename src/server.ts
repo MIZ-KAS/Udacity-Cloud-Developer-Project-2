@@ -31,9 +31,8 @@ import {Request, Response} from 'express';
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
-
-
-  app.get("/filteredimage",async (req, res)=>{
+  
+  app.get("/filteredimage",async (req:express.Request, res:express.Response) => {
     const { image_url } : any = req.query;
     if (!image_url) {
       return res.status(404).json({msg: "No Url was Passed"});
